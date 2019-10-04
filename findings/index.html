@@ -4,6 +4,7 @@
  	<link href="https://fonts.googleapis.com/css?family=EB+Garamond|Poiret+One&display=swap" rel="stylesheet">
  	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
+
  <!-- <script type="application/javascript">
     function draw() {
       var canvas = document.getElementById("canvas");
@@ -25,6 +26,10 @@
   		padding-right:16px;
   		margin-top:24px;
   		margin-bottom:24px;
+  	}
+
+  	footer{
+  		height:80px;
   	}
 
   	blockquote{
@@ -78,12 +83,19 @@
   		animation-iteration-count: infinite;
   		animation-duration: 1s;
   		animation-direction: alternate-reverse;
+  		animation-timing-function: ease-in-out;
   	}
 
-  	.moveUp{
-  		animation-name: moveUp;
-  		animation-duration: 2s;
-  		animation-iteration-count: infinite;
+  	.important{
+  		padding: 16px;
+  		font-family:'EB Garamond', serif;
+  		font-weight:800;
+  		width:100%;
+  		font-size: 25px;
+  		background-color: rgba(236,236,236,0.3);
+  		box-shadow: 1px 1px 1px 1px rgba(236,236,236,1);
+  		border-radius: 5px;
+
   	}
 
   	@keyframes flashing {
@@ -91,7 +103,7 @@
   			background-color: rgba(191,0,0,1);
   		}
   		to{
-  			background-color: rgba(191,0,0,0.7);
+  			background-color: rgba(191,0,0,0.5);
   		}
   	}
 
@@ -137,15 +149,14 @@
 <!-- Part 1 -->
 	<h3 class="margin-top">TA: Who wants a seller app and why</h3>
 	<p>
-	Those in need of seller apps are often rather small in company size, medium in business size on Rakuten TW ichiba, and self-managed in terms of team type.
-	</p>
-
+	Those in need of seller apps are often rather small in company size, medium in business size on Rakuten TW ichiba, and self-managed in terms of team type. The company size is usually not big enough, less than 20 people, to have functional structures. They ususally have one employee do multiple jobs and it is often the founder/CEO who does the most. Whoever the Rakuten shop manager is, they treat their job like their own child. 
+	</p> 
 	<div class="row">
 		<p class="col-3" style="width: 150px"> Company Size </p>
 		<div class="col-8" style="width:400px; height:40px; display: flex">
 			<p class="label-left"> Small </p>
 			<div style="height:20px; width:400px; background-color: rgba(191,0,0,0.2); border-radius: 50px; position:relative">
-				<div class="indicator" style="top:-6px; left:50px"></div>
+				<div class="indicator" style="top:-6px; left:50px"></div> 
 			</div>
 			<p class="label-right"> Large </p>
 		</div>	
@@ -155,7 +166,7 @@
 		<div class="col-8" style="width:400px; height:40px; display: flex">
 			<p class="label-left"> Small </p>
 			<div style="height:20px; width:400px; background-color: rgba(191,0,0,0.2); border-radius: 50px; position:relative">
-				<div class="indicator" style="top:-6px; left:135px"></div>
+				<div class="indicator" style="top:-6px; left:155px" data-toggle="tooltip" data-placement="buttom" title="Tooltip on bottom"></div>
 			</div>
 			<p class="label-right"> Large </p>
 		</div>	
@@ -188,18 +199,17 @@
 			<i data-feather="dollar-sign" style="width:16px; height:16px"></i> 
 			<i data-feather="dollar-sign" style="width:16px; height:16px"></i> 
 			Price 
-			<i data-feather="arrow-down" style="color:rgba(208,38,14,1)"></i>
+			<i data-feather="arrow-down"></i>
 		</li>
 		<li><i data-feather="star" style="width:16px; height:16px"></i> 
 			<i data-feather="star" style="width:16px; height:16px"></i> 
 			<i data-feather="star" style="width:16px; height:16px"></i> 
-			Rating <i data-feather="arrow-up" style="color:rgba(106,164,52,1)"></i></li>
+			Rating <i data-feather="arrow-up"></i></li>
 	</ul>
 
 		<br>
 		<p> How to improve rating? <br> According to our sellers, the more resposive your are, the higher rate you can get.</p>
-
-
+		<p class="important"> As mobile devices allow sellers to work wherever and whenever they need to, they can respond to customers quickly. </p>
 	</div>
 </div>
 
@@ -207,12 +217,38 @@
 	
 <!-- Part 3 -->
 	<h3 class="margin-top">Solutions: What should we provide within this app</h3>
+	<div class="row">
+		<div class="col-8">
 			<p> Mobile apps can provide immediacy, helping our sellers to act more responsively in two ways: </p>
 		<ol>
 			<li>Reply to customers' question quickly
+				<ul>
+					<li>FAQ: Do you have this item in stock? </li>
+					<li>FAQ: When will my order be dispatched? How long does it take? </li>
+				</ul>
 			</li>
-			<li>Manage customers' orders in a timely fashion</li>
+			<li>Manage customers' orders in a timely fashion
+			<ul>
+					<li>Be informed when new orders are placed</li>
+					<li>Check out order status</li>
+					<li>Update product listing and pricing</li>
+				</ul>
+			</li>
 		</ol>
+		</div>
+		<div class="col-3">
+			<div style="position: relative; height: 300px; width:180px; background-color: #ffffff; border-radius: 6px; box-shadow: 1px 1px 2px 1px #cccccc">
+				<div style="position: absolute; height:250px; width: 160px; top: 20px; left:10px; background-color: rgba(197,238,244,0.5)">
+					<div style="position:relative; left: 10px; top: 20px; width:100px; background-color: #ffffff; border-radius: 10px;font-size:12px; color: #333333; padding:4px"> Hi, may I know when I can receive my order?</div>
+					<div style="position:relative; left: 50px; top: 40px; width:100px; background-color: #ffffff; border-radius: 10px;font-size:12px; color: #333333; padding:4px"> Can I have your order number, please?</div>
+				</div>
+				<div style="position: absolute; height: 15px; width: 15px; bottom: 8px; left: 85; border-radius: 50px; background-color: rgba(220,220,220,1);"></div>
+			</div>
+
+		</div>
+
+	</div>
+			
 		<blockquote class="blockquote text-right">
 			<p class="mb-0">"回覆客戶訊息我們大部分都用即時通或聊聊，速度比信件快多了。"</p>
 			<footer class="blockquote-footer">3C - 無名小物 </footer>
@@ -227,8 +263,10 @@
 
 </div>
 
+<footer></footer>
+
 <script>
-	feather.replace()
+	feather.replace();
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
