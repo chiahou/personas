@@ -1,0 +1,237 @@
+<html>
+ <head>
+ 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 	<link href="https://fonts.googleapis.com/css?family=EB+Garamond|Poiret+One&display=swap" rel="stylesheet">
+ 	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+ <!-- <script type="application/javascript">
+    function draw() {
+      var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "rgb(190,190,190, 0.5)";
+        ctx.fillRect (0, 0, 600, 300);
+
+
+        ctx.font = "bold 24px verdana, sans-serif"
+        ctx.fillText("Hello, this is weird", 50, 50)
+
+    }
+  </script>-->
+  <style>
+
+  	.row{
+  		padding-left:16px;
+  		padding-right:16px;
+  		margin-top:24px;
+  		margin-bottom:24px;
+  	}
+
+  	blockquote{
+  		margin-top:32px;
+  		padding-left:30%;
+  		padding-right:16px;
+  		border-right: 3px solid #cccccc;
+
+  	}
+
+  	h1, h2, h3, h4, h5, h6{
+  		font-family: 'Poiret One', cursive;
+  		font-weight: bolds;
+  		color: #999999;
+  		padding-top:24px;
+  	}
+  	p, li{
+  		font-family: 'EB Garamond', serif;
+  		font-weight: 200;
+  		font-size: 18px;
+  		color: #555555;
+  	}
+
+
+  	.label-left{
+  		width:100px;
+  		text-align:right;
+  		color: #999999;
+  		padding: 0px 8px;
+  	}
+
+  	.label-right{
+  		width:100px;
+  		text-align:left;
+  		color: #999999;
+  		padding: 0px 8px;
+  	}
+
+ 	.margin-top{
+  		margin-top:120px;
+  	}
+
+  	.indicator{
+  		height:32px; 
+  		width:32px; 
+  		background-color: rgba(191,0,0,1); 
+  		border: 1px solid rgba(191,0,0,1);
+  		border-radius: 50px; 
+  		position:absolute;
+  		animation-name: flashing;
+  		animation-iteration-count: infinite;
+  		animation-duration: 1s;
+  		animation-direction: alternate-reverse;
+  	}
+
+  	.moveUp{
+  		animation-name: moveUp;
+  		animation-duration: 2s;
+  		animation-iteration-count: infinite;
+  	}
+
+  	@keyframes flashing {
+  		from{
+  			background-color: rgba(191,0,0,1);
+  		}
+  		to{
+  			background-color: rgba(191,0,0,0.7);
+  		}
+  	}
+
+  	@keyframes moveUp{
+  		0% {
+  			transform: translateY(0);}
+  		}
+  		50% {
+  			transform: translateY(2px);
+  		}
+  		100% {
+  			transform: translateY(4px);
+  		}
+  	}
+
+  </style>
+ </head>
+ <body onload="draw();">
+   <!--<canvas id="canvas" width="1500" height="600"></canvas>-->
+<div class="container">
+	<h1 class="display-3 text-center margin-top">App for Sellers</h1> 
+	<p class="lead margin-top"> We have been conducting interviews to get to know more about sellers on Taiwan Rakuten Ichiba. Here are some of the insights we've gained from the interview results. </p>
+
+	<div class="row">
+
+		<blockquote class="blockquote text-right">
+			<p class="mb-0">"如果你們要開發後台系統，廠商後台app系統一定要...客戶問什麼問題就會跳出訊息，讓你可以即時回覆。你們還要登入後台，而且還不能及時回覆..."</p>
+			<footer class="blockquote-footer">3C - 尖頭曼 </footer>
+
+		</blockquote>
+		<blockquote class="blockquote text-right">
+			<p class="mb-0">"希望可以透過手機看後台，查看訂單狀況、以及客戶訊息。要看還有沒有庫存，因為我們出貨快，一般都是希望可以當天出貨。"</p>
+			<footer class="blockquote-footer">保健 - 小資屋 </footer>
+
+		</blockquote>
+
+
+		
+	</div>
+
+	<hr>
+
+<!-- Part 1 -->
+	<h3 class="margin-top">TA: Who wants a seller app and why</h3>
+	<p>
+	Those in need of seller apps are often rather small in company size, medium in business size on Rakuten TW ichiba, and self-managed in terms of team type.
+	</p>
+
+	<div class="row">
+		<p class="col-3" style="width: 150px"> Company Size </p>
+		<div class="col-8" style="width:400px; height:40px; display: flex">
+			<p class="label-left"> Small </p>
+			<div style="height:20px; width:400px; background-color: rgba(191,0,0,0.2); border-radius: 50px; position:relative">
+				<div class="indicator" style="top:-6px; left:120px"></div>
+			</div>
+			<p class="label-right"> Large </p>
+		</div>	
+	</div>
+	<div class="row">
+		<p class="col-3" style="width: 150px"> Business Size (On Rakuten TW) </p>
+		<div class="col-8" style="width:400px; height:40px; display: flex">
+			<p class="label-left"> Small </p>
+			<div style="height:20px; width:400px; background-color: rgba(191,0,0,0.2); border-radius: 50px; position:relative">
+				<div class="indicator" style="top:-6px; left:135px"></div>
+			</div>
+			<p class="label-right"> Large </p>
+		</div>	
+	</div>
+	<div class="row">
+		<p class="col-3" style="width: 150px"> Team Type </p>
+		<div class="col-8" style="width:400px; height:40px; display: flex">
+			<p class="label-left"> Self-managed </p>
+			<div style="height:20px; width:400px; background-color: rgba(191,0,0,0.2); border-radius: 50px; position:relative">
+				<div class="indicator" style="top:-6px; left:20px"></div>
+			</div>
+			<p class="label-right"> Functional </p>
+		</div>	
+	</div>
+
+<hr>
+
+<!-- Part 2 -->
+	<h3 class="margin-top">Goals: What do they want to achieve with this app</h3>
+
+	<div class="row">
+		<div class="col-3">
+			<img src="img01.png">
+		</div>
+		<div class="col-8" >
+		<p>
+	According to the sellers we've interviewed, we can concluded that there are two key factors contributing to their business success: </p>
+	<ul>
+		<li><i data-feather="dollar-sign" style="width:16px; height:16px"></i> 
+			<i data-feather="dollar-sign" style="width:16px; height:16px"></i> 
+			<i data-feather="dollar-sign" style="width:16px; height:16px"></i> 
+			Price 
+			<i data-feather="arrow-down" style="color:rgba(208,38,14,1)"></i>
+		</li>
+		<li><i data-feather="star" style="width:16px; height:16px"></i> 
+			<i data-feather="star" style="width:16px; height:16px"></i> 
+			<i data-feather="star" style="width:16px; height:16px"></i> 
+			Rating <i data-feather="arrow-up" style="color:rgba(106,164,52,1)"></i></li>
+	</ul>
+
+		<br>
+		<p> How to improve rating? <br> According to our sellers, the more resposive your are, the higher rate you can get.</p>
+
+
+	</div>
+</div>
+
+<hr>
+	
+<!-- Part 3 -->
+	<h3 class="margin-top">Solutions: What should we provide within this app</h3>
+			<p> Mobile apps can provide immediacy, helping our sellers to act more responsively in two ways: </p>
+		<ol>
+			<li>Reply to customers' question quickly
+			</li>
+			<li>Manage customers' orders in a timely fashion</li>
+		</ol>
+		<blockquote class="blockquote text-right">
+			<p class="mb-0">"回覆客戶訊息我們大部分都用即時通或聊聊，速度比信件快多了。"</p>
+			<footer class="blockquote-footer">3C - 無名小物 </footer>
+		</blockquote>
+
+		<blockquote class="blockquote text-right">
+			<p class="mb-0">"廠商後台系統第一個會有訂單real-time即時通知，第二個關鍵是客服，客戶問什麼問題就會跳出訊息，讓你可以即時回覆。...這一塊PCHome跟蝦皮做得很棒，因為蝦皮有聊聊。"</p>
+			<footer class="blockquote-footer">3C - 尖頭曼 </footer>
+
+		</blockquote>
+
+
+</div>
+
+<script>
+	feather.replace()
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ </body>
+</html>
