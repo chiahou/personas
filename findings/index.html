@@ -1,5 +1,11 @@
-<html>
+<! doctype html>
+
+<html lang="en">
  <head>
+ 	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
  	<link href="https://fonts.googleapis.com/css?family=EB+Garamond|Poiret+One&display=swap" rel="stylesheet">
  	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -100,10 +106,10 @@
 
   	@keyframes flashing {
   		from{
-  			background-color: rgba(191,0,0,1);
+  			transform: scale(1);
   		}
   		to{
-  			background-color: rgba(191,0,0,0.5);
+  			transform: scale(1.2);
   		}
   	}
 
@@ -139,8 +145,6 @@
 			<footer class="blockquote-footer">保健 - 小資屋 </footer>
 
 		</blockquote>
-
-
 		
 	</div>
 
@@ -151,12 +155,14 @@
 	<p>
 	Those in need of seller apps are often rather small in company size, medium in business size on Rakuten TW ichiba, and self-managed in terms of team type. The company size is usually not big enough, less than 20 people, to have functional structures. They ususally have one employee do multiple jobs and it is often the founder/CEO who does the most. Whoever the Rakuten shop manager is, they treat their job like their own child. 
 	</p> 
+
 	<div class="row">
 		<p class="col-3" style="width: 150px"> Company Size </p>
 		<div class="col-8" style="width:400px; height:40px; display: flex">
 			<p class="label-left"> Small </p>
 			<div style="height:20px; width:400px; background-color: rgba(191,0,0,0.2); border-radius: 50px; position:relative">
-				<div class="indicator" style="top:-6px; left:50px"></div> 
+				<div class="indicator" style="top:-6px; left:50px" data-toggle="tooltip" data-placement="buttom" title="< 100 employees"> </div> 
+				
 			</div>
 			<p class="label-right"> Large </p>
 		</div>	
@@ -166,7 +172,7 @@
 		<div class="col-8" style="width:400px; height:40px; display: flex">
 			<p class="label-left"> Small </p>
 			<div style="height:20px; width:400px; background-color: rgba(191,0,0,0.2); border-radius: 50px; position:relative">
-				<div class="indicator" style="top:-6px; left:155px" data-toggle="tooltip" data-placement="buttom" title="Tooltip on bottom"></div>
+				<div class="indicator" style="top:-6px; left:155px" data-toggle="tooltip" data-placement="buttom" title="GMS 10K - 500K"></div>
 			</div>
 			<p class="label-right"> Large </p>
 		</div>	
@@ -176,7 +182,7 @@
 		<div class="col-8" style="width:400px; height:40px; display: flex">
 			<p class="label-left"> Self-managed </p>
 			<div style="height:20px; width:400px; background-color: rgba(191,0,0,0.2); border-radius: 50px; position:relative">
-				<div class="indicator" style="top:-6px; left:20px"></div>
+				<div class="indicator" style="top:-6px; left:20px" data-toggle="tooltip" data-placement="buttom" title="A self-managed team is a group of employees that's responsible and accountable for all or most aspects of producing a product or delivering a service."></div>
 			</div>
 			<p class="label-right"> Functional </p>
 		</div>	
@@ -266,8 +272,13 @@
 <footer></footer>
 
 <script>
-	feather.replace();
+	feather.replace()
 </script>
+ 	<script>
+		$(document).ready(function(){
+		  $('[data-toggle="tooltip"]').tooltip('show');
+		});
+ 	</script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
