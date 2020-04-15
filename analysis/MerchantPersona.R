@@ -25,17 +25,17 @@ BS = Business.Size.on.Rakuten,
 CS = Company.Size,
 TT = Team.Type,
 AST = Average.Sales.Per.Transaction,
-PP = Preferred..Main..Platform,
 MC = Marketing.Channel.Diversity,
 MP = Marketing.Planning,
 MSL = Marketing.Style,
 MST = Marketing.Strategy,
-OS = Operational.Strategy,
-OM = Operation.Management,
+DM = Decision.Making.Approach,
+OA = Operation.Automation,
 DT = Delivery.Time,
-FAQ = FAQ.Type,
+FAQ = FAQ,
 CR = Customer.Responsiveness
 )
+par(mfrow=c(1,1))
 p <- cor.mtest(my_data_cor, conf.level = .95)
 colnew <- colorRampPalette(c("red","white","blue"))
 my_cor_1 <- as.matrix(my_data_cor) %>% 
@@ -47,6 +47,11 @@ my_cor_2 <-  as.matrix(my_data_cor) %>%
   cor(method = "spearman") %>% 
   corrplot(method="circle", type="upper", tl.col = "#333333", col = colnew(20), p.mat=p$p, insig = "blank")
 
+##Exclude insignificance coefficient + show the parameters
+my_cor_3 <-  as.matrix(my_data_cor) %>% 
+  cor(method = "spearman") %>% 
+  corrplot(method="number", type="upper", tl.col = "#333333", col = colnew(20), p.mat=p$p, insig = "blank")
+
 # Draw plots to show the correlation 
 par(mfrow=c(4,2))
 ## plot 1: Brand Type VS. Marketing Channel Diversity
@@ -56,39 +61,38 @@ p1 <- ggplot(my_data, aes(x=Brand.Type, y=Marketing.Channel.Diversity))+
 p1 + labs(title="Brand Type VS. Marketing Channel Diversity")+
   scale_x_continuous(name="Brand Type", limits=c(1,5), breaks=c(1:5), label=c("Distributor","","","","Manufacturer"))+
   scale_y_continuous(name="Marketing Channel Diversity", limits=c(1,5), breaks=c(1:5), label=c("Omni","","","","Multi"))
-## plot 2: Preferred Platform VS. Average Sales Per Transaction
-p2 <- ggplot(my_data, aes(x = Preferred..Main..Platform, y=Average.Sales.Per.Transaction)) +
+## plot 2: Brand Type vs Marketing Style
+p2 <- ggplot(my_data, aes(x = Brand.Type, y=Marketing.Style)) +
   geom_point(color="dark blue") +
   geom_smooth(method=lm,color="#333333", linetype="dashed", size=0.5)
-p2 + labs(title="Preferred Platform VS. Average Sales per Transaction")+
-  scale_x_continuous(name="Preferred Platform", limits =c(1,5), breaks =c(1:5), label = c("Auction Site"," "," "," ","Shopping Mall"), expand=c(0.1,0))+
-  scale_y_continuous(name="Average Sales per Transaction", limits=c(1,4), breaks=c(1,2,3,4), label=c("low","medium","medium-high","high"))
-## plot 3: Marketing Planning VS. Team Type
-p3 <- ggplot(my_data, aes(x = Marketing.Planning, y=Team.Type)) +
+p2 + labs(title="Brand Type VS. Marketing Style")+
+  scale_x_continuous(name="Brand Type", limits=c(1,5), breaks=c(1:5), label=c("Distributor","","","","Manufacturer"))+
+  scale_y_continuous(name="Marketing Style", limits=c(1,5), breaks=c(1:5), label=c("Conservative","","","","Innovative"))
+## plot 3: Brand Type VS. Marketing Strategy
+p3 <- ggplot(my_data, aes(x = Brand.Type, y=Marketing.Strategy)) +
   geom_point(color="dark blue") +
   geom_smooth(method=lm,color="#333333", linetype="dashed", size=0.5)
-p3 + labs(title="Marketing Planning VS. Team Type")+
-  scale_x_continuous(name="Marketing Planning", limits=c(1,5), breaks=c(1:5), label=c("spontaneous","","","","organized"))+
-  scale_y_continuous(name="Team Type", limits=c(1,5), breaks=c(1:5), label=c("self-managed","","","","functional"))
-## plot 4: Marketing Style VS.Marketing Channel
-p4 <- ggplot(my_data, aes(x = Marketing.Style, y=Marketing.Channel.Diversity)) +
+p3 + labs(title="Brand Type VS. Marketing Strategy")+
+  scale_x_continuous(name="Brand Type", limits=c(1,5), breaks=c(1:5), label=c("Distributor","","","","Manufacturer"))+
+  scale_y_continuous(name="Marketing strategy", limits=c(1,5), breaks=c(1:5), label=c("Transactional","","","","Branding"))
+## plot 4: Business Size on Rakuten VS. Delivery Time
+p4 <- ggplot(my_data, aes(x = Business.Size.on.Rakuten, y=Delivery.Time)) +
   geom_point(color="dark blue") +
   geom_smooth(method=lm,color="#333333", linetype="dashed", size=0.5)
-p4 + labs(title="Marketing Style VS. Marketing Channel")+
-  scale_x_continuous(name="Marketing Style", limits=c(1,5), breaks=c(1:5), label=c("conservative","","","","innovative"))+
-  scale_y_continuous(name="Marketing Channel", limits=c(1,5), breaks=c(1:5), label=c("Omni","","","","Multi"))
-## plot 5: Marketing Strategy VS. Marketing Channel
-p5 <- ggplot(my_data, aes(x = Marketing.Strategy, y=Marketing.Channel.Diversity)) +
+p4 + labs(title="Business Size on Rakuten VS. Delivery Time")+
+  scale_x_continuous(name="Business Size", limits=c(1,5), breaks=c(1:5), label=c("In red","Small","Medium","Large","Super Large"))+
+  scale_y_continuous(name="Delivery Time", limits=c(1,5), breaks=c(1:5), label=c("< 1 day","1-3days","3-5days","5-10days","> 10 days"))
+## plot 5: Business Size on Rakuten VS. Customer Responsiveness
+p5 <- ggplot(my_data, aes(x = Business.Size.on.Rakuten, y=Customer.Responsiveness)) +
   geom_point(color="dark blue") +
   geom_smooth(method=lm,color="#333333", linetype="dashed", size=0.5)
-p5 + labs(title="Marketing Strategy VS. Marketing Channel")+
-  scale_x_continuous(name="Marketing Strategy", limits=c(1,5), breaks=c(1:5), label=c("transactional","","","","content"))+
-  scale_y_continuous(name="Marketing Channel", limits=c(1,5), breaks=c(1:5), label=c("Omni","","","","Multi"))
-## plot 6: Marketing Strategy VS. Marketing Style
-p6 <- ggplot(my_data, aes(x = Marketing.Strategy, y=Marketing.Style)) +
-  geom_point(color="dark blue") +
-  geom_smooth(method=lm,color="#333333", linetype="dashed", size=0.5)
-p6 + labs(title="Marketing Strategy VS. Marketing Style")+
-  scale_x_continuous(name="Marketing Strategy", limits=c(1,5), breaks=c(1:5), label=c("transactional","","","","content"))+
-  scale_y_continuous(name="Marketing Style", limits=c(1,5), breaks=c(1:5), label=c("conservative","","","","innovative"))
-
+p5 + labs(title="Business Size on Rakuten VS. Customer Responsiveness")+
+  scale_x_continuous(name="Business Size", limits=c(1,5), breaks=c(1:5), label=c("In red","Small","Medium","Large","Super Large"))+
+  scale_y_continuous(name="Customer Responsiveness", limits=c(1,5), breaks=c(1:5), label=c("Instant","","Normal","","Time-Consuming"))
+# plot 6: Team Type VS. Marketing Planning
+p6 <- ggplot(my_data, aes(x = Team.Type, y = Marketing.Planning))+
+  geom_point(color="dark blue")+
+  geom_smooth(method=lm, color="#333333", linetype="dashed", size=0.5)
+p6 + labs(title="Team Type VS. Marketing Planning")+
+  scale_x_continuous(name="Team Type", limits=c(1,5), breaks=c(1:5), label=c("Self-managed","","","","Functional"))+
+  scale_y_continuous(name="Marketing Planning", limits=c(1,5), breaks=c(1:5), label=c("Sponatenous","","","","Organized"))
